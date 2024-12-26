@@ -27,11 +27,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.map
 
-
+@Preview
 @Composable
 fun myButton(){
     Button(
-        onClick = { /* Acción básica */ },
+        onClick = {  },
         modifier = Modifier
             .width(200.dp)
             .height(60.dp),
@@ -44,7 +44,7 @@ fun myButton(){
     }
 }
 
-
+@Preview
 @Composable
 fun ButtonWithShapeAndSizePreview() {
     Button(
@@ -58,21 +58,22 @@ fun ButtonWithShapeAndSizePreview() {
     }
 }
 
+@Preview
 @Composable
-fun ButtonWithShapePreview() {
+fun ButtonWithShape() {
     Button(
-        onClick = { /* Acción básica */ },
-        shape = RoundedCornerShape(16.dp) // Esquinas redondeadas
+        onClick = {  },
+        shape = RoundedCornerShape(10.dp) // Esquinas redondeadas
     ) {
-        Text(text = "Rounded Button")
+        Text(text = "Rounded ")
     }
 }
 
-
+@Preview
 @Composable
-fun ButtonWithElevationPreview() {
+fun ButtonWithElevation() {
     Button(
-        onClick = { /* Acción básica */ },
+        onClick = {  },
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 8.dp, // Elevación en estado normal
             pressedElevation = 16.dp, // Elevación al presionar
@@ -83,6 +84,7 @@ fun ButtonWithElevationPreview() {
     }
 }
 
+@Preview
 @Composable
 fun ButtonWithElevationAndColorsPreview() {
     Button(
@@ -102,7 +104,7 @@ fun ButtonWithElevationAndColorsPreview() {
         Text(text = "Elevation & Colors")
     }
 }
-
+@Preview
 @Composable
 fun ButtonWithBorderPreview() {
     Button(
@@ -113,6 +115,8 @@ fun ButtonWithBorderPreview() {
     }
 }
 
+
+@Preview
 @Composable
 fun ButtonWithBorderAndShapePreview() {
     Button(
@@ -128,8 +132,10 @@ fun ButtonWithBorderAndShapePreview() {
     }
 }
 
+
+@Preview
 @Composable
-fun ButtonWithCustomPaddingPreview() {
+fun ButtonWithCustomPadding() {
     Button(
         onClick = { /* Acción básica */ },
         contentPadding = PaddingValues(
@@ -143,6 +149,8 @@ fun ButtonWithCustomPaddingPreview() {
     }
 }
 
+
+@Preview
 @Composable
 fun ButtonWithPaddingAndStylePreview() {
     Button(
@@ -168,13 +176,14 @@ fun ButtonWithPaddingAndStylePreview() {
 }
 
 
-
+@Preview
 @Composable
 fun ButtonWithInteractionSourcePreview() {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed = remember(interactionSource) {
+        // Detectamos si es una interacción de presión
         interactionSource.interactions.map { interaction ->
-            interaction is PressInteraction.Press // Detectamos si es una interacción de presión
+            interaction is PressInteraction.Press
         }
     }.collectAsState(initial = false).value
 
@@ -182,13 +191,16 @@ fun ButtonWithInteractionSourcePreview() {
         onClick = { /* Acción básica */ },
         interactionSource = interactionSource,
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isPressed) Color.Red else Color.Blue, // Cambia de color si está presionado
+            // Cambia de color si está presionado
+            containerColor = if (isPressed) Color.Red else Color.Blue,
             contentColor = Color.White
         )
     ) {
         Text(text = if (isPressed) "Pressed" else "Not Pressed")
     }
 }
+
+
 @Preview
 @Composable
 fun FullyCustomButtonPreview() {
@@ -234,7 +246,8 @@ fun FullyCustomButtonPreview() {
             modifier = Modifier.size(24.dp),
             tint = Color.Black
         )
-        Spacer(modifier = Modifier.width(8.dp)) // Espacio entre ícono y texto
+        // Espacio entre ícono y texto
+        Spacer(modifier = Modifier.width(8.dp))
         Text(text = "Like") // Texto del botón
     }
 }

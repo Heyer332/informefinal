@@ -12,10 +12,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import java.lang.reflect.Modifier
 
 
+@Preview
 @Composable
 fun BasicRadioButtonPreview() {
     val isSelected = remember { mutableStateOf(false) }
@@ -26,7 +25,7 @@ fun BasicRadioButtonPreview() {
     )
 }
 
-
+@Preview
 @Composable
 fun RadioButtonWithCustomColors() {
     val isSelected = remember { mutableStateOf(false) }
@@ -42,20 +41,25 @@ fun RadioButtonWithCustomColors() {
         )
     )
 }
-
+@Preview
 @Composable
 fun RadioGroupPreview() {
-    val options = listOf("Option 1", "Option 2", "Option 3")
-    val selectedOption = remember { mutableStateOf(options[0]) }
+    val options = listOf("Option 1",
+        "Option 2", "Option 3")
+    val selectedOption = remember {
+        mutableStateOf(options[0]) }
 
     Column {
         options.forEach { option ->
             Row(
-                verticalAlignment = Alignment.CenterVertically,
+                verticalAlignment = Alignment
+                    .CenterVertically,
             ) {
                 RadioButton(
-                    selected = (option == selectedOption.value),
-                    onClick = { selectedOption.value = option }
+                    selected = (option ==
+                            selectedOption.value),
+                    onClick = { selectedOption
+                        .value = option }
                 )
                 Text(
                     text = option,
@@ -65,6 +69,7 @@ fun RadioGroupPreview() {
     }
 }
 
+@Preview
 @Composable
 fun DisabledRadioButton() {
     RadioButton(

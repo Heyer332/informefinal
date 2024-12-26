@@ -31,7 +31,7 @@ fun myAlertDialog(){
             AlertDialog(
                 onDismissRequest = { showDialog.value = false },
                 confirmButton = {
-                    Button(onClick = { showDialog.value = false }) {
+                    Button(onClick = { showDialog.value = false }){
                         Text("Aceptar")
                     }
                 },

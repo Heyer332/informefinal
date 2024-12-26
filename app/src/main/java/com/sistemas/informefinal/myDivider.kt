@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-
+@Preview
 @Composable
 
 fun myDivider() {
@@ -26,10 +26,12 @@ fun myDivider() {
             thickness = 1.dp,
             color = Color.Gray
         )
-        Text(text = "Texto debajo del divisor")
+        Text(text = "Texto debajo del divisor",
+            color = Color.White)
     }
 }
 
+@Preview
 @Composable
 fun BasicVerticalDividerExample() {
     Row(modifier = Modifier.padding(16.dp)) {
@@ -39,12 +41,13 @@ fun BasicVerticalDividerExample() {
                 .fillMaxHeight()
                 .padding(horizontal = 8.dp),
             thickness = 1.dp,
-            color = Color.Gray
+            color = Color.White
         )
         Text(text = "Texto a la derecha")
     }
 }
 
+@Preview
 @Composable
 fun ThickCustomDividerExample() {
     Column {

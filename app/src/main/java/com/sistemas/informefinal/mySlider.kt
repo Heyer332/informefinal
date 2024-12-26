@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-
+@Preview
 @Composable
 fun mySlider(){
     val sliderValue = remember { mutableStateOf(0.5f) }
@@ -33,7 +33,7 @@ fun mySlider(){
     }
 }
 
-
+@Preview
 @Composable
 fun DiscreteSliderExample() {
     val sliderValue = remember { mutableStateOf(2f) }
@@ -57,7 +57,8 @@ fun DiscreteSliderExample() {
 @Preview
 @Composable
 fun RangeSliderExample() {
-    val sliderValues = remember { mutableStateOf(0.2f..0.8f) }
+    val sliderValues = remember { mutableStateOf(
+        0.2f..0.8f) }
 
     Column(
         modifier = Modifier
@@ -65,7 +66,9 @@ fun RangeSliderExample() {
             .padding(16.dp)
     ) {
         Text(
-            text = "Rango actual: ${sliderValues.value.start} a ${sliderValues.value.endInclusive}"
+            text = "Rango actual: ${sliderValues
+                .value.start} a ${sliderValues.value
+                    .endInclusive}"
         )
         RangeSlider(
             value = sliderValues.value,

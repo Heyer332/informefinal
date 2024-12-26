@@ -1,12 +1,12 @@
 package com.sistemas.informefinal
 
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Switch
@@ -16,17 +16,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import java.lang.reflect.Modifier
 
 
+@Preview
 @Composable
 fun SwitchWithCustomColorsPreview() {
     val isChecked = remember { mutableStateOf(false) }
 
     Switch(
+        // Actualizamos el estado con `.value`
         checked = isChecked.value, // Accedemos al estado con `.value`
-        onCheckedChange = { isChecked.value = it }, // Actualizamos el estado con `.value`
+        // Actualizamos el estado con `.value`
+        onCheckedChange = { isChecked.value = it },
         colors = SwitchDefaults.colors(
             checkedThumbColor = Color.Green,
             checkedTrackColor = Color.LightGray,
@@ -35,7 +36,7 @@ fun SwitchWithCustomColorsPreview() {
         )
     )
 }
-
+@Preview
 @Composable
 fun SwitchWithThumbContent() {
     val isChecked = remember { mutableStateOf(false) }
@@ -52,7 +53,7 @@ fun SwitchWithThumbContent() {
         }
     )
 }
-
+@Preview
 @Composable
 fun DisabledSwitch() {
     val isChecked = remember { mutableStateOf(true) }
@@ -63,7 +64,7 @@ fun DisabledSwitch() {
         enabled = false
     )
 }
-@Preview(showSystemUi = true)
+@Preview
 @Composable
 fun FullyCustomSwitch() {
     val isChecked = remember { mutableStateOf(false) }
@@ -74,7 +75,9 @@ fun FullyCustomSwitch() {
 
         thumbContent = {
             Icon(
-                imageVector = if (isChecked.value) Icons.Default.ThumbUp else Icons.Default.KeyboardArrowUp,
+                imageVector = if (isChecked.value) Icons.Default
+                    .ThumbUp else Icons.Default
+                        .KeyboardArrowDown,
                 contentDescription = null,
                 tint = Color.White,
 

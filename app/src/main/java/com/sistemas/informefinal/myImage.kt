@@ -7,24 +7,24 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Star
+
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.graphics.BlendMode.Companion.Color
+
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.FilterQuality
+
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import coil.compose.rememberAsyncImagePainter
 
 
+@Preview
 @Composable
 fun BasicImagePreview() {
     Image(
@@ -32,24 +32,28 @@ fun BasicImagePreview() {
         contentDescription = "Favorite Icon"
     )
 }
-@Preview (showSystemUi = true)
+
+@Preview
 @Composable
 fun LocalImagePreview() {
     Image(
-        painter = painterResource(id = R.drawable.imagen), // Nombre de la imagen en drawable
+        // Nombre de la imagen en drawable
+        painter = painterResource(id = R.drawable.imagen),
         contentDescription = "Imagen local de ejemplo",
-        modifier = Modifier.size(200.dp) // Tamaño personalizado
+        // Tamaño personalizado
+        modifier = Modifier.size(200.dp)
     )
 }
 
-
+@Preview
 @Composable
 fun ImageWithContentScalePreview() {
     Image(
         painter = rememberVectorPainter(Icons.Default.ThumbUp),
         contentDescription = "Thumb Up Icon",
         modifier = Modifier.size(150.dp),
-        contentScale = ContentScale.Crop // Ajuste para recortar la imagen
+        // Ajuste para recortar la imagen
+        contentScale = ContentScale.Crop
     )
 }
 
@@ -63,17 +67,19 @@ fun ImageWithAlphaPreview() {
     )
 }
 
+@Preview
 @Composable
 fun ImageWithColorFilterPreview() {
     Image(
         painter = rememberVectorPainter(Icons.Default.Email),
         contentDescription = "Email Icon",
         modifier = Modifier.size(100.dp),
-        colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.Red) // Cambia el color del ícono a rojo
+        // Cambia el color del ícono a rojo
+        colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.Red)
     )
 }
 
-
+@Preview
 @Composable
 fun FullyCustomImagePreview() {
     Image(
@@ -83,14 +89,18 @@ fun FullyCustomImagePreview() {
             .size(150.dp) // Tamaño personalizado
             .padding(16.dp) // Relleno externo
             .clipToBounds(), // Recorte al tamaño definido
-        alignment = Alignment.TopEnd, // Alineado en la esquina superior derecha
-        contentScale = ContentScale.Fit, // Escala para que la imagen encaje en el contenedor
+        // Alineado en la esquina superior derecha
+        alignment = Alignment.TopEnd,
+        // Escala para que la imagen encaje en el contenedor
+        contentScale = ContentScale.Fit,
         alpha = 0.8f, // Opacidad ajustada
-        colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.Cyan), // Filtro de color magenta
+        // Filtro de color magenta
+        colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.Cyan),
 
     )
 }
 
+@Preview
 @Composable
 fun FullyCustomImageFromNetworkPreview() {
     AsyncImage(
@@ -103,6 +113,7 @@ fun FullyCustomImageFromNetworkPreview() {
         alignment = Alignment.Center, // Alineación centrada
         contentScale = ContentScale.Crop, // Recorte para llenar el contenedor
         alpha = 0.9f, // Opacidad casi completa
-        colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.Blue) // Filtro para aplicar un tono gris
+        // Filtro para aplicar un tono gris
+        colorFilter = ColorFilter.tint(androidx.compose.ui.graphics.Color.Blue)
     )
 }

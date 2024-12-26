@@ -1,5 +1,6 @@
 package com.sistemas.informefinal
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -21,7 +22,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun FullTextButtonWithCircularImages() {
+fun FullTextButtonWithCirculares() {
     TextButton(
         onClick = { /* Acción completa */ },
         enabled = true,

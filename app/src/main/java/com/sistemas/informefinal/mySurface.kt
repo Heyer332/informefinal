@@ -16,30 +16,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
-
+@Preview
 @Composable
 
 fun mySurface(){
     Surface(
         modifier = Modifier.padding(16.dp),
         color = Color.LightGray,
-        tonalElevation = 4.dp, // Elevación tonal para efecto visual
-        shadowElevation = 8.dp // Sombra para separación visual
-    ) {
-        Box(modifier = Modifier.padding(16.dp)) {
+        // Elevación tonal para efecto visual
+        tonalElevation = 4.dp,
+        // Sombra para separación visual
+        shadowElevation = 8.dp
+    ) { Box(modifier = Modifier.padding(16.dp)) {
             Text(text = "Texto adentro de Surface")
         }
     }
 }
 
 
-
+@Preview
 @Composable
 fun SurfaceWithBorderAndShape() {
     Surface(
         modifier = Modifier.padding(16.dp),
-        shape = RoundedCornerShape(16.dp), // Forma personalizada con bordes redondeados
-        border = BorderStroke(2.dp, Color.Blue), // Borde azul
+        // Forma personalizada con bordes redondeados
+        shape = RoundedCornerShape(16.dp),
+        // Borde azul
+        border = BorderStroke(2.dp, Color.Blue),
         color = Color.White,
         tonalElevation = 2.dp,
         shadowElevation = 4.dp
@@ -51,7 +54,7 @@ fun SurfaceWithBorderAndShape() {
     }
 }
 
-
+@Preview
 @Composable
 fun ClickableSurfaceExample() {
     val clickedState = remember { mutableStateOf(false) }
@@ -60,9 +63,12 @@ fun ClickableSurfaceExample() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        color = if (clickedState.value) Color.Green else Color.Red,
+        color = if (clickedState.value) Color
+            .Green else Color.Red,
         shadowElevation = 4.dp,
-        onClick = { clickedState.value = !clickedState.value } // Alterna estado al hacer clic
+        // Alterna estado al hacer clic
+        onClick = { clickedState.value =
+            !clickedState.value }
     ) {
         Text(
             text = if (clickedState.value) "Clickeado" else "Haz clic aquí",
@@ -79,15 +85,19 @@ fun ToggleableSurfaceExample() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        shape = RoundedCornerShape(16.dp), // Forma personalizada con bordes redondeados
+        // Forma personalizada con bordes redondeados
+        shape = RoundedCornerShape(16.dp),
         border = BorderStroke(2.dp, Color.Blue),
-        color = if (isSelected.value) Color.Cyan else Color.Gray,
-        onCheckedChange = { isSelected.value = it }, // Cambia el estado al hacer clic
+        color = if (isSelected.value) Color
+            .Cyan else Color.Gray,
+        // Cambia el estado al hacer clic
+        onCheckedChange = { isSelected.value = it },
         checked = isSelected.value,
         shadowElevation = 6.dp
     ) {
         Text(
-            text = if (isSelected.value) "Activado" else "Desactivado",
+            text = if (isSelected.value) "Activado"
+            else "Desactivado",
             modifier = Modifier.padding(16.dp)
         )
     }
